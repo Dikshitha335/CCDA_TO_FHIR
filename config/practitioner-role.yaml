@@ -1,0 +1,11 @@
+# Load order: lower runs first. Resources that reference others must run after them.
+order: 40
+mappings:
+  - resource: PractitionerRole
+    profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole|6.1.0
+    foreach: author/assignedAuthor
+    require: [practitioner]
+    fields:
+      practitioner.reference: ref:Practitioner
+      organization.reference: ref:Organization
+      specialty[0]: cc:code

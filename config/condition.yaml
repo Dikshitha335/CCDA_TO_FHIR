@@ -1,0 +1,16 @@
+# Load order: lower runs first. Resources that reference others must run after them.
+order: 70
+mappings:
+  - resource: Condition
+    profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0
+    foreach: //act[templateId=2.16.840.1.113883.10.20.22.4.3]
+    require: [code]
+    fields:
+      clinicalStatus.coding[0].system: =http://terminology.hl7.org/CodeSystem/condition-clinical
+      clinicalStatus.coding[0].code: statusCode@code | map:condStatus | default:active
+      category[0].coding[0].system: =http://terminology.hl7.org/CodeSystem/condition-category
+      category[0].coding[0].code: =problem-list-item
+      code: cc:entryRelationship/observation/value
+      subject.reference: ref:Patient
+      onsetDateTime: entryRelationship/observation/effectiveTime/low@value | date
+      abatementDateTime: entryRelationship/observation/effectiveTime/high@value | date

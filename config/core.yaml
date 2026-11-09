@@ -1,0 +1,11 @@
+systems:
+  2.16.840.1.113883.6.1: http://loinc.org
+  2.16.840.1.113883.6.96: http://snomed.info/sct
+  2.16.840.1.113883.6.90: http://hl7.org/fhir/sid/icd-10-cm
+  2.16.840.1.113883.6.88: http://www.nlm.nih.gov/research/umls/rxnorm
+  2.16.840.1.113883.6.12: http://www.ama-assn.org/go/cpt
+  2.16.840.1.113883.4.6: http://hl7.org/fhir/sid/us-npi
+maps:
+  gender: {M: male, F: female, UN: unknown}
+  obsStatus: {completed: final, active: preliminary, aborted: cancelled}
+  condStatus: {active: active, completed: resolved, suspended: inactive}

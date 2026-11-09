@@ -1,0 +1,21 @@
+# Load order: lower runs first. Resources that reference others must run after them.
+order: 130
+mappings:
+  - resource: DocumentReference
+    profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference|6.1.0
+    foreach: .
+    fields:
+      identifier[0].system: id@root | oid
+      identifier[0].value: id@extension
+      status: =current
+      type: cc:code
+      category[0].coding[0].system: =http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category
+      category[0].coding[0].code: =clinical-note
+      subject.reference: ref:Patient
+      date: effectiveTime@value | date
+      author[0].reference: ref:Practitioner
+      custodian.reference: ref:Organization
+      content[0].attachment.contentType: =application/xml
+      content[0].attachment.title: title
+      content[0].profile[0].valueCoding.system: =http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem
+      content[0].profile[0].valueCoding.code: =urn:hl7-org:sdwg:ccda-structuredBody:2.1

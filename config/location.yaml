@@ -1,0 +1,14 @@
+# Load order: lower runs first. Resources that reference others must run after them.
+order: 50
+mappings:
+  - resource: Location
+    profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-location|6.1.0
+    foreach: //encounter//participant[typeCode=LOC]/participantRole
+    require: [name]
+    fields:
+      status: =active
+      name: playingEntity/name
+      telecom[0].system: =phone
+      telecom[0].value: telecom@value | tel
+      address.city: addr/city
+      address.state: addr/state

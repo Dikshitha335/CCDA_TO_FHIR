@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C-CDA to FHIR R5 Converter</title>
+<style>
+:root{color-scheme:light dark;--bg:#fafaf9;--fg:#1c1917;--mut:#78716c;--card:#fff;--bd:#e7e5e4;--ac:#0f766e;--acf:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141413;--fg:#f5f5f4;--mut:#a8a29e;--card:#1f1e1d;--bd:#3a3836;--ac:#2dd4bf;--acf:#042f2e}}
+:root[data-theme=dark]{--bg:#141413;--fg:#f5f5f4;--mut:#a8a29e;--card:#1f1e1d;--bd:#3a3836;--ac:#2dd4bf;--acf:#042f2e}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:20px 20px 0;max-width:1000px;margin:auto}
+h1{font-size:22px;margin:0 0 4px}p.s{color:var(--mut);margin:0 0 14px}
+nav{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--bd)}
+nav button{background:none;border:0;border-bottom:2px solid transparent;color:var(--mut);padding:8px 12px;font:inherit;cursor:pointer}
+nav button.on{color:var(--ac);border-color:var(--ac);font-weight:600}
+main{max-width:1000px;margin:auto;padding:16px 20px 40px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:16px;margin-bottom:12px}
+#drop{border:2px dashed var(--bd);border-radius:12px;padding:36px 16px;text-align:center;color:var(--mut)}
+#drop.over{border-color:var(--ac);color:var(--ac)}
+button.b,label.b{background:var(--ac);color:var(--acf);border:0;border-radius:8px;padding:7px 14px;font:inherit;cursor:pointer;display:inline-block}
+button.g{background:none;color:var(--ac);border:1px solid var(--bd)}
+select,textarea{background:var(--card);color:var(--fg);border:1px solid var(--bd);border-radius:8px;padding:6px;font:inherit;max-width:100%}
+pre,textarea{font:12.5px/1.45 ui-monospace,Menlo,Consolas,monospace}
+pre{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:12px;overflow:auto;max-height:65vh;margin:8px 0}
+textarea{width:100%;height:55vh;box-sizing:border-box}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.chip{background:var(--card);border:1px solid var(--bd);border-radius:99px;padding:2px 10px;font-size:13px}
+details{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:8px 12px;margin-bottom:6px}
+summary{cursor:pointer}summary small{color:var(--mut)}
+.err{color:#dc2626}
+</style>
+</head>
+<body>
+<header>
+<h1>C-CDA to FHIR R5 Converter</h1>
+<p class="s">Upload C-CDA XML documents, get a FHIR R5 Bundle, then view it split into US Core 6.1 resources. Conversion runs on the server; files are not stored.</p>
+<nav><button data-t="upload" class="on">1. Upload</button><button data-t="bundle">2. Bundle output</button><button data-t="res">3. Individual resources</button></nav>
+</header>
+<main>
+<div id="bar" class="row" hidden><label>Document <select id="sf"></select></label></div>
+<section id="t-upload" class="tab">
+<div id="drop" class="card"><p>Drop C-CDA files (.xml) here</p>
+<label class="b">Choose files<input id="fi" type="file" multiple accept=".xml,.cda,.ccda" hidden></label>
+<button class="b g" id="smp">Load sample C-CDA</button></div>
+<div id="list"></div>
+</section>
+<section id="t-bundle" class="tab" hidden>
+<div id="bsum" class="row"></div>
+<div class="row"><button class="b" id="cb">Copy JSON</button><button class="b g" id="db">Download bundle</button></div>
+<pre id="bout">Upload a document first.</pre>
+</section>
+<section id="t-res" class="tab" hidden>
+<div class="row"><label>Resource type <select id="tf"></select></label><button class="b g" id="cn">Download all as NDJSON</button></div>
+<div id="rl">Upload a document first.</div>
+</section>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+let results=[],shown=[];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const cur=()=>results[+$('#sf').value||0];
+const counts=l=>l.reduce((a,x)=>(a[x.resourceType]=(a[x.resourceType]||0)+1,a),{});
+function dl(name,text){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'application/json'}));a.download=name;a.click();URL.revokeObjectURL(a.href)}
+async function copy(t){try{await navigator.clipboard.writeText(t)}catch{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}}
+function show(t){
+  document.querySelectorAll('.tab').forEach(e=>e.hidden=e.id!=='t-'+t);
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
+  $('#bar').hidden=!(t==='bundle'||t==='res');
+}
+async function load(files){
+  const fd=new FormData();[...files].forEach(f=>fd.append('files',f));
+  try{
+    const r=await fetch('/api/convert',{method:'POST',body:fd}),j=await r.json();
+    if(!r.ok)throw Error(j.error||r.statusText);
+    results=results.concat(j.results);
+  }catch(e){alert('Conversion failed: '+e.message);return}
+  render();show('bundle');
+}
+function render(){
+  const keep=$('#sf').value;
+  $('#sf').innerHTML=results.map((r,i)=>`<option value="${i}">${esc(r.name)}${r.error?' (error)':''}</option>`).join('');
+  if(keep&&results[keep])$('#sf').value=keep;
+  $('#list').innerHTML=results.map(r=>`<div class="card"><b>${esc(r.name)}</b> `+(r.error?`<span class="err">${esc(r.error)}</span>`:`<span class="chip">${r.resources.length} resources</span>`)+'</div>').join('');
+  renderB();renderR();
+}
+function renderB(){
+  const r=cur();
+  if(!r){$('#bsum').innerHTML='';$('#bout').textContent='Upload a document first.';return}
+  if(r.error){$('#bsum').innerHTML='';$('#bout').textContent='Error: '+r.error;return}
+  $('#bsum').innerHTML=Object.entries(counts(r.resources)).map(([k,v])=>`<span class="chip">${k}: ${v}</span>`).join('');
+  $('#bout').textContent=JSON.stringify(r.bundle,null,2);
+}
+function renderR(){
+  const r=cur();
+  if(!r||r.error){$('#tf').innerHTML='';$('#rl').textContent=r?'Error: '+r.error:'Upload a document first.';return}
+  const c=counts(r.resources),prev=$('#tf').value;
+  $('#tf').innerHTML=`<option value="">All (${r.resources.length})</option>`+Object.entries(c).map(([k,v])=>`<option value="${k}">${k} (${v})</option>`).join('');
+  if(c[prev])$('#tf').value=prev;
+  const f=$('#tf').value;
+  shown=r.resources.filter(x=>!f||x.resourceType===f);
+  $('#rl').innerHTML=shown.map((x,i)=>`<details><summary><b>${x.resourceType}</b>/${esc(x.id)} <small>${esc((x.meta?.profile?.[0]||'').split('/').pop())}</small></summary><div class="row"><button class="b g" data-c="${i}">Copy</button><button class="b g" data-d="${i}">Download</button></div><pre>${esc(JSON.stringify(x,null,2))}</pre></details>`).join('');
+}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>show(b.dataset.t));
+$('#fi').onchange=e=>load(e.target.files);
+$('#smp').onclick=async()=>{const b=await (await fetch('/api/sample')).blob();load([new File([b],'sample-ccda.xml')])};
+const dz=$('#drop');
+dz.ondragover=e=>{e.preventDefault();dz.classList.add('over')};
+dz.ondragleave=()=>dz.classList.remove('over');
+dz.ondrop=e=>{e.preventDefault();dz.classList.remove('over');load(e.dataTransfer.files)};
+$('#sf').onchange=()=>{renderB();renderR()};
+$('#tf').onchange=renderR;
+$('#cb').onclick=()=>{const r=cur();if(r?.bundle)copy(JSON.stringify(r.bundle,null,2))};
+$('#db').onclick=()=>{const r=cur();if(r?.bundle)dl(r.name.replace(/\.\w+$/,'')+'.bundle.json',JSON.stringify(r.bundle,null,2))};
+$('#cn').onclick=()=>dl('resources.ndjson',shown.map(x=>JSON.stringify(x)).join('\n'));
+$('#rl').onclick=e=>{const c=e.target.dataset.c,d=e.target.dataset.d;
+  if(c!==undefined)copy(JSON.stringify(shown[c],null,2));
+  if(d!==undefined)dl(shown[d].resourceType+'-'+shown[d].id+'.json',JSON.stringify(shown[d],null,2))};
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Load order: lower runs first. Resources that reference others must run after them.
+order: 900
+mappings:
+  - resource: Provenance
+    profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance|6.1.0
+    foreach: .
+    fields:
+      target: refs:*
+      recorded: effectiveTime@value | date
+      agent[0].type.coding[0].system: =http://terminology.hl7.org/CodeSystem/provenance-participant-type
+      agent[0].type.coding[0].code: =author
+      agent[0].who.reference: ref:Practitioner
+      agent[0].onBehalfOf.reference: ref:Organization

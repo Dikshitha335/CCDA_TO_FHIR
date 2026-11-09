@@ -1,0 +1,14 @@
+# Load order: lower runs first. Resources that reference others must run after them.
+order: 20
+mappings:
+  - resource: Organization
+    profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0
+    foreach: recordTarget/patientRole/providerOrganization
+    require: [name]
+    fields:
+      identifier[0].system: id@root | oid
+      identifier[0].value: id@extension
+      active: =true
+      name: name
+      telecom[0].system: =phone
+      telecom[0].value: telecom@value | tel

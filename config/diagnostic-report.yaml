@@ -1,0 +1,16 @@
+# Load order: lower runs first. Resources that reference others must run after them.
+order: 90
+mappings:
+  - resource: DiagnosticReport
+    profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab|6.1.0
+    foreach: //organizer[templateId=2.16.840.1.113883.10.20.22.4.1]
+    require: [code]
+    fields:
+      status: statusCode@code | map:obsStatus | default:final
+      category[0].coding[0].system: =http://terminology.hl7.org/CodeSystem/v2-0074
+      category[0].coding[0].code: =LAB
+      code: cc:code
+      subject.reference: ref:Patient
+      encounter.reference: ref:Encounter
+      effectiveDateTime: effectiveTime/low@value | date
+      result: refs:Observation

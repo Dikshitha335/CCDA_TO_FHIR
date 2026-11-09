@@ -1,0 +1,38 @@
+# Load order: lower runs first. Resources that reference others must run after them.
+order: 80
+mappings:
+  - name: Lab result
+    resource: Observation
+    profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab|6.1.0
+    foreach: //observation[templateId=2.16.840.1.113883.10.20.22.4.2]
+    require: [code]
+    fields:
+      status: statusCode@code | map:obsStatus | default:final
+      category[0].coding[0].system: =http://terminology.hl7.org/CodeSystem/observation-category
+      category[0].coding[0].code: =laboratory
+      code: cc:code
+      subject.reference: ref:Patient
+      encounter.reference: ref:Encounter
+      effectiveDateTime: effectiveTime@value | date
+      valueQuantity.value: value@value | num
+      valueQuantity.unit: value@unit
+      valueQuantity.system: =http://unitsofmeasure.org
+      valueQuantity.code: value@unit
+      valueCodeableConcept: cc:value
+  - name: Vital sign
+    resource: Observation
+    profile: http://hl7.org/fhir/StructureDefinition/vitalsigns
+    foreach: //observation[templateId=2.16.840.1.113883.10.20.22.4.27]
+    require: [code]
+    fields:
+      status: statusCode@code | map:obsStatus | default:final
+      category[0].coding[0].system: =http://terminology.hl7.org/CodeSystem/observation-category
+      category[0].coding[0].code: =vital-signs
+      code: cc:code
+      subject.reference: ref:Patient
+      encounter.reference: ref:Encounter
+      effectiveDateTime: effectiveTime@value | date
+      valueQuantity.value: value@value | num
+      valueQuantity.unit: value@unit
+      valueQuantity.system: =http://unitsofmeasure.org
+      valueQuantity.code: value@unit

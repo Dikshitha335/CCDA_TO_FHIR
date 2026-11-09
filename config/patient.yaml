@@ -1,0 +1,22 @@
+# Load order: lower runs first. Resources that reference others must run after them.
+order: 10
+mappings:
+  - resource: Patient
+    profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0
+    foreach: recordTarget/patientRole
+    require: [name]
+    fields:
+      identifier[0].system: id@root | oid
+      identifier[0].value: id@extension
+      name[0].use: =official
+      name[0].family: patient/name/family
+      name[0].given[0]: patient/name/given
+      gender: patient/administrativeGenderCode@code | map:gender
+      birthDate: patient/birthTime@value | date
+      telecom[0].system: =phone
+      telecom[0].value: telecom@value | tel
+      address[0].line[0]: addr/streetAddressLine
+      address[0].city: addr/city
+      address[0].state: addr/state
+      address[0].postalCode: addr/postalCode
+      address[0].country: addr/country

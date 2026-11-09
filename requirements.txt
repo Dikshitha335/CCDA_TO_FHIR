@@ -1,0 +1,5 @@
+flask>=3.0
+pyyaml>=6.0
+defusedxml>=0.7
+gunicorn>=22.0
+pytest>=8.0

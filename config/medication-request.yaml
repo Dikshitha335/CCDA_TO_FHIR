@@ -1,0 +1,20 @@
+# Load order: lower runs first. Resources that reference others must run after them.
+order: 110
+maps:
+  medStatus: {active: active, completed: completed, aborted: stopped, suspended: on-hold}
+mappings:
+  - resource: MedicationRequest
+    profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0
+    foreach: //substanceAdministration[templateId=2.16.840.1.113883.10.20.22.4.16]
+    require: [medication]
+    fields:
+      status: statusCode@code | map:medStatus | default:active
+      intent: =order
+      medication.concept: cc:consumable/manufacturedProduct/manufacturedMaterial/code
+      subject.reference: ref:Patient
+      encounter.reference: ref:Encounter
+      authoredOn: effectiveTime/low@value | date
+      requester.reference: ref:Practitioner
+      dosageInstruction[0].text: text
+      dosageInstruction[0].doseAndRate[0].doseQuantity.value: doseQuantity@value | num
+      dosageInstruction[0].doseAndRate[0].doseQuantity.unit: doseQuantity@unit

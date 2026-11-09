@@ -1,0 +1,15 @@
+# Load order: lower runs first. Resources that reference others must run after them.
+order: 120
+maps:
+  procStatus: {completed: completed, active: in-progress, aborted: stopped}
+mappings:
+  - resource: Procedure
+    profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure|6.1.0
+    foreach: //procedure[templateId=2.16.840.1.113883.10.20.22.4.14]
+    require: [code]
+    fields:
+      status: statusCode@code | map:procStatus | default:completed
+      code: cc:code
+      subject.reference: ref:Patient
+      encounter.reference: ref:Encounter
+      occurrenceDateTime: effectiveTime@value | date

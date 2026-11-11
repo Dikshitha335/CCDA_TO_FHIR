@@ -1,39 +1,43 @@
-"""Web app: upload C-CDA files, view the FHIR R5 Bundle and the split resources.
+"""Web app: upload C-CDA files, convert to FHIR R5 Bundles, browse inputs and bundles.
 
-Uploads are converted in memory; nothing is written to disk or logged.
+Uploaded files are saved to data/input/, bundles to data/output/ (override with CCDA_DATA_DIR).
+Set CCDA_SOURCE_BASE (e.g. gs://my-bucket/ccda/) to write that prefix into meta.source
+instead of a local file:// URI.
 """
 import os
+from pathlib import Path
 
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, request, send_file, send_from_directory
 
-from ccda2fhir import ConfigError, ConversionError, convert, load_config, split_bundle
+from ccda2fhir import ConfigError, load_config, split_bundle
+from ccda2fhir.storage import Storage, process_file
 
-BASE = os.path.dirname(os.path.abspath(__file__))
-CONFIG_DIR = os.environ.get("CCDA_CONFIG_DIR", os.path.join(BASE, "config"))
+BASE = Path(__file__).resolve().parent
+CONFIG_DIR = os.environ.get("CCDA_CONFIG_DIR", str(BASE / "config"))
+store = Storage(os.environ.get("CCDA_DATA_DIR", str(BASE / "data")), os.environ.get("CCDA_SOURCE_BASE"))
 
 app = Flask(__name__, static_folder="static", static_url_path="/static")
 app.config["MAX_CONTENT_LENGTH"] = int(os.environ.get("MAX_UPLOAD_MB", "50")) * 1024 * 1024
 
 
+def _cfg():
+    return load_config(CONFIG_DIR)  # re-read per request: new YAML files apply without a restart
+
+
 @app.get("/")
 def index():
-    return send_from_directory(os.path.join(BASE, "static"), "index.html")
+    return send_from_directory(BASE / "static", "index.html")
 
 
 @app.get("/api/sample")
 def sample():
-    return send_from_directory(os.path.join(BASE, "samples"), "sample_ccda.xml", mimetype="application/xml")
+    return send_from_directory(BASE / "samples", "sample_ccda.xml", mimetype="application/xml")
 
 
 @app.get("/api/config")
 def config_info():
-    """List the active mappings (re-read from disk on every call)."""
-    try:
-        cfg = load_config(CONFIG_DIR)
-    except ConfigError as exc:
-        return jsonify(error=str(exc)), 500
     return jsonify(mappings=[{"file": m["_file"], "resource": m["resource"], "profile": m.get("profile")}
-                             for m in cfg["mappings"]])
+                             for m in _cfg()["mappings"]])
 
 
 @app.post("/api/convert")
@@ -41,18 +45,57 @@ def api_convert():
     files = request.files.getlist("files")
     if not files:
         return jsonify(error="No files uploaded"), 400
-    try:
-        cfg = load_config(CONFIG_DIR)  # reloaded per request: new YAML files apply without a restart
-    except ConfigError as exc:
-        return jsonify(error=f"Config error: {exc}"), 500
-    results = []
+    cfg, results = _cfg(), []
     for f in files:
-        try:
-            bundle = convert(f.read(), cfg)
-            results.append({"name": f.filename, "bundle": bundle, "resources": split_bundle(bundle)})
-        except (ConversionError, ConfigError) as exc:
-            results.append({"name": f.filename, "error": str(exc)})
+        path = store.save_input(f.filename, f.read())
+        info, bundle = process_file(path, cfg, store)
+        if bundle:
+            info["bundle"], info["resources"] = bundle, split_bundle(bundle)
+        results.append(info)
     return jsonify(results=results)
+
+
+@app.post("/api/process")
+def api_process():
+    """Process files already in input/. Body: {"names": [...]} or {} for every pending file."""
+    names = (request.get_json(silent=True) or {}).get("names")
+    cfg, out = _cfg(), []
+    for row in store.list_inputs():
+        wanted = row["name"] in names if names else row["status"] == "pending"
+        if wanted and Path(row["path"]).is_file():
+            out.append(process_file(row["path"], cfg, store)[0])
+    return jsonify(results=out)
+
+
+@app.get("/api/inputs")
+def list_inputs():
+    return jsonify(location=str(store.input), items=store.list_inputs())
+
+
+@app.get("/api/bundles")
+def list_bundles():
+    return jsonify(location=str(store.output), items=store.list_bundles())
+
+
+@app.get("/api/inputs/<name>")
+def get_input(name):
+    row = next((r for r in store.list_inputs() if r["name"] == name), None)
+    if not row or not Path(row["path"]).is_file():
+        return jsonify(error="Not found"), 404
+    return send_file(row["path"], mimetype="application/xml", as_attachment=request.args.get("download") == "1")
+
+
+@app.get("/api/bundles/<name>")
+def get_bundle(name):
+    path = store.output / name
+    if Path(name).name != name or not path.is_file():
+        return jsonify(error="Not found"), 404
+    return send_file(path, mimetype="application/fhir+json", as_attachment=request.args.get("download") == "1")
+
+
+@app.errorhandler(ConfigError)
+def bad_config(exc):
+    return jsonify(error=f"Config error: {exc}"), 500
 
 
 @app.errorhandler(413)

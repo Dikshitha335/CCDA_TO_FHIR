@@ -85,3 +85,16 @@ def test_new_yaml_file_adds_resource(tmp_path, xml):
     b = convert(xml, load_config(str(tmp_path / "config")))
     basic = [r for r in split_bundle(b) if r["resourceType"] == "Basic"]
     assert basic and basic[0]["code"]["text"] == "Continuity of Care Document"
+
+
+def test_meta_tag_and_source(cfg, xml):
+    src = "gs://bucket/ccda/sample.xml"
+    b = convert(xml, cfg, source=src)
+    assert b["meta"]["source"] == src and b["meta"]["tag"] == [{"code": "EXL"}]
+    for r in split_bundle(b):
+        assert r["meta"]["source"] == src and r["meta"]["tag"] == [{"code": "EXL"}]
+        assert "profile" in r["meta"] or r["resourceType"] == "Basic"
+
+
+def test_no_source_means_no_source_key(cfg, xml):
+    assert "source" not in convert(xml, cfg)["meta"]

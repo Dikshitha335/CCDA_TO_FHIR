@@ -1,47 +1,46 @@
 #!/usr/bin/env python3
-"""Batch CLI: python cli.py docs/*.xml -o out/ [--split]"""
+"""Batch CLI: python cli.py docs/*.xml [--split]
+
+Bundles go to <data-dir>/output/. meta.source is the real location of each input file
+(or CCDA_SOURCE_BASE + file name if that is set).
+"""
 import argparse
 import json
 import os
 import sys
+from pathlib import Path
 
-from ccda2fhir import ConfigError, ConversionError, convert, load_config, split_bundle
+from ccda2fhir import ConfigError, load_config, split_bundle
+from ccda2fhir.storage import Storage, process_file
 
-HERE = os.path.dirname(os.path.abspath(__file__))
+HERE = Path(__file__).resolve().parent
 
 
 def main():
     ap = argparse.ArgumentParser(description="Convert C-CDA XML files to FHIR R5 Bundles")
     ap.add_argument("files", nargs="+", help="C-CDA XML files")
-    ap.add_argument("-o", "--out", default="out", help="output folder (default: out)")
-    ap.add_argument("-c", "--config", default=os.path.join(HERE, "config"), help="YAML mapping folder")
+    ap.add_argument("-d", "--data-dir", default=os.environ.get("CCDA_DATA_DIR", str(HERE / "data")))
+    ap.add_argument("-c", "--config", default=str(HERE / "config"), help="YAML mapping folder")
     ap.add_argument("--split", action="store_true", help="also write one JSON file per resource")
     args = ap.parse_args()
+    store = Storage(args.data_dir, os.environ.get("CCDA_SOURCE_BASE"))
     try:
         cfg = load_config(args.config)
     except ConfigError as exc:
         sys.exit(f"Config error: {exc}")
-    os.makedirs(args.out, exist_ok=True)
     failed = 0
-    for path in args.files:
-        stem = os.path.splitext(os.path.basename(path))[0]
-        try:
-            with open(path, "rb") as fh:
-                bundle = convert(fh.read(), cfg)
-        except (ConversionError, ConfigError, OSError) as exc:
-            print(f"FAIL {path}: {exc}", file=sys.stderr)
+    for f in args.files:
+        info, bundle = process_file(f, cfg, store)
+        if not bundle:
+            print(f"FAIL {f}: {info['error']}", file=sys.stderr)
             failed += 1
             continue
-        with open(os.path.join(args.out, f"{stem}.bundle.json"), "w", encoding="utf-8") as fh:
-            json.dump(bundle, fh, indent=2)
         if args.split:
-            folder = os.path.join(args.out, stem)
-            os.makedirs(folder, exist_ok=True)
+            folder = store.output / Path(f).stem
+            folder.mkdir(exist_ok=True)
             for res in split_bundle(bundle):
-                name = f"{res['resourceType']}-{res['id']}.json"
-                with open(os.path.join(folder, name), "w", encoding="utf-8") as fh:
-                    json.dump(res, fh, indent=2)
-        print(f"OK   {path}: {len(bundle['entry'])} resources")
+                (folder / f"{res['resourceType']}-{res['id']}.json").write_text(json.dumps(res, indent=2), encoding="utf-8")
+        print(f"OK   {f} -> {info['savedTo']} ({info['resourceCount']} resources)")
     sys.exit(1 if failed else 0)
 
 

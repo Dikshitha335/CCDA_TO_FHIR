@@ -29,7 +29,7 @@ _DATE = re.compile(r"^(\d{4})(\d\d)?(\d\d)?(\d\d)?(\d\d)?(\d\d)?(?:\.\d+)?([+-]\
 
 def load_config(config_dir):
     """Read every *.yaml in config_dir; mappings run in (order, filename) order."""
-    cfg = {"systems": {}, "maps": {}, "mappings": []}
+    cfg = {"systems": {}, "maps": {}, "meta": {}, "mappings": []}
     loaded = []
     for path in glob.glob(os.path.join(config_dir, "*.y*ml")):
         name = os.path.basename(path)
@@ -42,6 +42,7 @@ def load_config(config_dir):
     for _, name, doc in sorted(loaded, key=lambda x: (x[0], x[1])):
         cfg["systems"].update(doc.get("systems") or {})
         cfg["maps"].update(doc.get("maps") or {})
+        cfg["meta"].update(doc.get("meta") or {})
         for m in doc.get("mappings") or []:
             m["_file"] = name
             cfg["mappings"].append(m)
@@ -211,8 +212,21 @@ def _set_path(obj, path, value):
 
 
 # ---------- public API ----------
-def convert(xml, cfg):
-    """Convert C-CDA XML (bytes or str) to a FHIR R5 Bundle (dict)."""
+def _stamp(meta, cfg, source):
+    """Add the configured meta.tag and the meta.source (origin of the file) to a meta dict."""
+    tags = (cfg.get("meta") or {}).get("tag")
+    if tags:
+        meta["tag"] = [dict(t) for t in tags]
+    if source:
+        meta["source"] = source
+    return meta
+
+
+def convert(xml, cfg, source=None):
+    """Convert C-CDA XML (bytes or str) to a FHIR R5 Bundle (dict).
+
+    source: where the input file lives (e.g. file:///... or gs://...); written to meta.source.
+    """
     try:
         root = DET.fromstring(xml, forbid_dtd=True)
     except (ParseError, DefusedXmlException) as exc:
@@ -223,14 +237,18 @@ def convert(xml, cfg):
     tag = hashlib.sha1(raw).hexdigest()[:8]  # makes ids stable and unique per document
     parent = {c: p for p in root.iter() for c in p}
     made, counts = [], {}
+    scopes = (cfg.get("meta") or {}).get("apply_to") or ["bundle", "resources"]
     for m in cfg["mappings"]:
         rtype = m["resource"]
         nodes = [root] if m.get("foreach") == "." else _select([root], m["foreach"])
         for ctx in nodes:
             counts[rtype] = counts.get(rtype, 0) + 1
             res = {"resourceType": rtype, "id": f"{rtype.lower()}-{tag}-{counts[rtype]}"}
-            if m.get("profile"):
-                res["meta"] = {"profile": [m["profile"]]}
+            meta = {"profile": [m["profile"]]} if m.get("profile") else {}
+            if "resources" in scopes:
+                _stamp(meta, cfg, source)
+            if meta:
+                res["meta"] = meta
             dynamic, constants = set(), []
             for key, spec in (m.get("fields") or {}).items():
                 spec, rk = str(spec), re.split(r"[.\[]", key)[0]
@@ -249,8 +267,11 @@ def convert(xml, cfg):
                 continue
             made.append((res, ctx))
     now = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    bundle_meta = {"lastUpdated": now}
+    if "bundle" in scopes:
+        _stamp(bundle_meta, cfg, source)
     return {
-        "resourceType": "Bundle", "id": f"bundle-{tag}", "meta": {"lastUpdated": now},
+        "resourceType": "Bundle", "id": f"bundle-{tag}", "meta": bundle_meta,
         "type": "collection", "timestamp": now,
         "entry": [{"fullUrl": f"https://example.org/fhir/{r['resourceType']}/{r['id']}", "resource": r}
                   for r, _ in made],

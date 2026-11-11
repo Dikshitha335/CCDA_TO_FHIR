@@ -17,7 +17,7 @@ Bundle output, Individual resources (filter by type, copy or download).
 
 ### Batch CLI
 ```bash
-python cli.py docs/*.xml -o out/ --split      # bundle per file, plus one JSON per resource
+python cli.py docs/*.xml --split              # bundles to data/output/, plus one JSON per resource
 ```
 
 ### Docker
@@ -28,9 +28,27 @@ docker build -t ccda2fhir . && docker run -p 8000:8000 ccda2fhir
 ### REST API
 | Method | Path | Description |
 |---|---|---|
-| POST | `/api/convert` | multipart field `files` (one or more). Returns `{results:[{name, bundle, resources}]}` or per-file `error` |
+| POST | `/api/convert` | multipart field `files`. Saves input and bundle, returns `{results:[{name, status, bundle, resources, savedTo, source}]}` |
+| POST | `/api/process` | convert files already in `data/input/` (`{"names":[...]}`, or `{}` for all pending) |
+| GET | `/api/inputs`, `/api/bundles` | listings with status, size, dates (`/api/inputs/<name>`, `/api/bundles/<name>` fetch one; `?download=1`) |
 | GET | `/api/config` | active mappings |
 | GET | `/api/sample` | sample C-CDA |
+
+## Input files, bundles and meta tagging
+Every conversion is saved in a bucket-style folder layout (default `data/` inside the repo, override with `CCDA_DATA_DIR`):
+
+```
+data/input/    uploaded C-CDA files, or drop files here and click "Process pending"
+data/output/   <input name>.bundle.json
+data/status/   per-file processing result (used by the Input files / Bundles tabs)
+```
+The **Input files** and **Bundles** tabs list these like the GCS console (name, size, type, last modified,
+status, filter, view/download). Click a bundle name to open it in the Bundle output and Individual resources tabs.
+
+Each Bundle and each resource is stamped with `meta.tag` (code `EXL`) and `meta.source` (where the input file lives):
+`file:///C:/.../data/input/x.xml` by default. Set `CCDA_SOURCE_BASE=gs://my-bucket/ccda/` to write
+`gs://my-bucket/ccda/x.xml` instead, so ids line up with a GCS-to-FHIR-store flow. Change the tag, add a `system`,
+or limit it to the Bundle only under `meta:` in `config/core.yaml`. The CLI uses the file's real path as the source.
 
 ## Project layout
 ```
@@ -91,7 +109,7 @@ Add terminology OIDs to `systems:` in `core.yaml` (unknown OIDs become `urn:oid:
   (e.g. `Encounter.actualPeriod`, `medication.concept`), so strict US Core validation flags those differences.
 - Bundles are `type: collection` (no Composition is generated). Resource ids are derived from a hash of the input, so reruns are stable.
 - Timestamps without a time zone are emitted as dates, since FHIR forbids a time without a zone.
-- **PHI.** Files are processed in memory and never stored or logged by this app, and XML is parsed with
+- **PHI.** Uploaded files and generated bundles are written to `data/` (PHI: protect or purge that folder; it is git-ignored); nothing is logged, and XML is parsed with
   `defusedxml` (no external entities or DTDs). For production, serve behind HTTPS with authentication,
   e.g. gunicorn behind a reverse proxy; the dev server binds to `127.0.0.1` only. Set `HOST`, `PORT`, `MAX_UPLOAD_MB`, `CCDA_CONFIG_DIR` as needed.
 - Not yet mapped: allergy severity, medication frequency/route, procedure body site, immunizations, race/ethnicity, smoking status.

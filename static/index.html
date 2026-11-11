@@ -30,13 +30,26 @@ textarea{width:100%;height:55vh;box-sizing:border-box}
 details{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:8px 12px;margin-bottom:6px}
 summary{cursor:pointer}summary small{color:var(--mut)}
 .err{color:#dc2626}
+.gcs{background:var(--card);border:1px solid var(--bd);border-radius:8px;overflow:hidden}
+.crumb{padding:12px 16px;border-bottom:1px solid var(--bd);font-size:15px}.crumb span{color:var(--mut);margin:0 6px}
+.loc{padding:6px 16px;color:var(--mut);font-size:12.5px;border-bottom:1px solid var(--bd);word-break:break-all}
+.tools{display:flex;gap:8px;flex-wrap:wrap;padding:10px 16px;border-bottom:1px solid var(--bd);align-items:center}
+.tools input[type=search]{flex:1;min-width:160px;background:var(--bg);color:var(--fg);border:1px solid var(--bd);border-radius:8px;padding:6px 10px;font:inherit}
+.tw{overflow-x:auto}table.t{width:100%;border-collapse:collapse;font-size:13.5px}
+table.t th{text-align:left;font-weight:600;color:var(--mut);padding:8px 12px;border-bottom:1px solid var(--bd);white-space:nowrap}
+table.t td{padding:8px 12px;border-bottom:1px solid var(--bd);vertical-align:top}
+table.t tbody tr:hover td{background:color-mix(in srgb,var(--ac) 8%,transparent)}
+table.t a{color:var(--ac);text-decoration:none;cursor:pointer}table.t a:hover{text-decoration:underline}
+.sub{color:var(--mut);font-size:12px;word-break:break-all;max-width:440px}
+.st{padding:1px 8px;border-radius:99px;font-size:12px;border:1px solid var(--bd)}
+.st.processed{color:#16a34a}.st.failed{color:#dc2626}.st.pending{color:#d97706}
 </style>
 </head>
 <body>
 <header>
 <h1>C-CDA to FHIR R5 Converter</h1>
 <p class="s">Upload C-CDA XML documents, get a FHIR R5 Bundle, then view it split into US Core 6.1 resources. Conversion runs on the server; files are not stored.</p>
-<nav><button data-t="upload" class="on">1. Upload</button><button data-t="bundle">2. Bundle output</button><button data-t="res">3. Individual resources</button></nav>
+<nav><button data-t="upload" class="on">1. Upload</button><button data-t="inputs">2. Input files</button><button data-t="bundles">3. Bundles</button><button data-t="bundle">4. Bundle output</button><button data-t="res">5. Individual resources</button></nav>
 </header>
 <main>
 <div id="bar" class="row" hidden><label>Document <select id="sf"></select></label></div>
@@ -45,6 +58,20 @@ summary{cursor:pointer}summary small{color:var(--mut)}
 <label class="b">Choose files<input id="fi" type="file" multiple accept=".xml,.cda,.ccda" hidden></label>
 <button class="b g" id="smp">Load sample C-CDA</button></div>
 <div id="list"></div>
+</section>
+<section id="t-inputs" class="tab" hidden>
+<div class="gcs"><div class="crumb">ccda-to-fhir<span>&rsaquo;</span>data<span>&rsaquo;</span><b>input/</b></div>
+<div class="loc" id="iloc"></div>
+<div class="tools"><input type="search" id="iq" placeholder="Filter by name or status"><button class="b g" id="irf">Refresh</button><button class="b g" id="ips">Process selected</button><button class="b" id="ipp">Process pending</button></div>
+<div class="tw"><table class="t"><thead><tr><th></th><th>Name</th><th>Size</th><th>Type</th><th>Last modified</th><th>Status</th><th>Bundle</th><th></th></tr></thead><tbody id="ib"></tbody></table></div></div>
+<pre id="viewer" hidden></pre>
+</section>
+<section id="t-bundles" class="tab" hidden>
+<div class="gcs"><div class="crumb">ccda-to-fhir<span>&rsaquo;</span>data<span>&rsaquo;</span><b>output/</b></div>
+<div class="loc" id="bloc"></div>
+<div class="tools"><input type="search" id="bq" placeholder="Filter by name or status"><button class="b g" id="brf">Refresh</button></div>
+<div class="tw"><table class="t"><thead><tr><th>Name</th><th>Size</th><th>Type</th><th>Last modified</th><th>Resources</th><th>Source (meta.source)</th><th></th></tr></thead><tbody id="bb"></tbody></table></div></div>
+
 </section>
 <section id="t-bundle" class="tab" hidden>
 <div id="bsum" class="row"></div>
@@ -68,6 +95,7 @@ function show(t){
   document.querySelectorAll('.tab').forEach(e=>e.hidden=e.id!=='t-'+t);
   document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
   $('#bar').hidden=!(t==='bundle'||t==='res');
+  if(t==='inputs')loadInputs();if(t==='bundles')loadBundles();
 }
 async function load(files){
   const fd=new FormData();[...files].forEach(f=>fd.append('files',f));
@@ -82,7 +110,7 @@ function render(){
   const keep=$('#sf').value;
   $('#sf').innerHTML=results.map((r,i)=>`<option value="${i}">${esc(r.name)}${r.error?' (error)':''}</option>`).join('');
   if(keep&&results[keep])$('#sf').value=keep;
-  $('#list').innerHTML=results.map(r=>`<div class="card"><b>${esc(r.name)}</b> `+(r.error?`<span class="err">${esc(r.error)}</span>`:`<span class="chip">${r.resources.length} resources</span>`)+'</div>').join('');
+  $('#list').innerHTML=results.map(r=>`<div class="card"><b>${esc(r.name)}</b> `+(r.error?`<span class="err">${esc(r.error)}</span>`:`<span class="chip">${r.resources.length} resources</span>`)+(r.savedTo?`<div class="sub">Saved to ${esc(r.savedTo)}</div>`:'')+'</div>').join('');
   renderB();renderR();
 }
 function renderB(){
@@ -117,6 +145,41 @@ $('#cn').onclick=()=>dl('resources.ndjson',shown.map(x=>JSON.stringify(x)).join(
 $('#rl').onclick=e=>{const c=e.target.dataset.c,d=e.target.dataset.d;
   if(c!==undefined)copy(JSON.stringify(shown[c],null,2));
   if(d!==undefined)dl(shown[d].resourceType+'-'+shown[d].id+'.json',JSON.stringify(shown[d],null,2))};
+
+/* ---- bucket-style listings ---- */
+const fmtSize=n=>n==null?'':n<1024?n+' B':n<1048576?(n/1024).toFixed(1)+' KB':(n/1048576).toFixed(1)+' MB';
+const fmtDate=s=>s?new Date(s).toLocaleString():'';
+let inputs=[],bundles=[];
+async function api(url,opt){const r=await fetch(url,opt),j=await r.json();if(!r.ok)throw Error(j.error||r.statusText);return j}
+const match=(x,q)=>JSON.stringify([x.name,x.status,x.source]).toLowerCase().includes(q.toLowerCase());
+async function loadInputs(){try{const j=await api('/api/inputs');inputs=j.items;$('#iloc').textContent='Location: '+j.location;drawInputs()}catch(e){alert(e.message)}}
+function drawInputs(){
+  const rows=inputs.filter(x=>match(x,$('#iq').value));
+  $('#ib').innerHTML=rows.map(x=>`<tr><td><input type="checkbox" data-n="${esc(x.name)}"></td><td>📄 <a data-v="${esc(x.name)}">${esc(x.name)}</a><div class="sub">${esc(x.source||'')}</div></td><td>${fmtSize(x.size)}</td><td>application/xml</td><td>${fmtDate(x.updated)}</td><td><span class="st ${x.status}">${x.status}</span>${x.error?`<div class="sub err">${esc(x.error)}</div>`:''}</td><td>${x.bundle?`<a data-b="${esc(x.bundle)}">${esc(x.bundle)}</a>`:''}</td><td><a href="/api/inputs/${encodeURIComponent(x.name)}?download=1">Download</a></td></tr>`).join('')||'<tr><td colspan="8">No input files yet. Upload one, or drop XML files into the input folder shown above.</td></tr>';
+}
+async function loadBundles(){try{const j=await api('/api/bundles');bundles=j.items;$('#bloc').textContent='Location: '+j.location;drawBundles()}catch(e){alert(e.message)}}
+function drawBundles(){
+  const rows=bundles.filter(x=>match(x,$('#bq').value));
+  $('#bb').innerHTML=rows.map(x=>`<tr><td>{ } <a data-o="${esc(x.name)}">${esc(x.name)}</a></td><td>${fmtSize(x.size)}</td><td>application/fhir+json</td><td>${fmtDate(x.updated)}</td><td>${x.resourceCount??''}</td><td><div class="sub">${esc(x.source||'')}</div></td><td><a href="/api/bundles/${encodeURIComponent(x.name)}?download=1">Download</a></td></tr>`).join('')||'<tr><td colspan="7">No bundles yet.</td></tr>';
+}
+async function openBundle(name){
+  try{
+    const b=await api('/api/bundles/'+encodeURIComponent(name)),item={name,bundleFile:name,bundle:b,resources:b.entry.map(e=>e.resource)};
+    let i=results.findIndex(r=>r.bundleFile===name);if(i<0){results.push(item);i=results.length-1}else results[i]=item;
+    render();$('#sf').value=String(i);renderB();renderR();show('bundle');
+  }catch(e){alert(e.message)}
+}
+async function viewInput(name){const v=$('#viewer');v.hidden=false;v.textContent='Loading...';v.textContent=await (await fetch('/api/inputs/'+encodeURIComponent(name))).text();v.scrollIntoView()}
+async function runProcess(names){
+  try{const j=await api('/api/process',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(names?{names}:{})});
+    alert(j.results.length?`Processed ${j.results.length} file(s): ${j.results.filter(r=>r.status==='processed').length} ok, ${j.results.filter(r=>r.status==='failed').length} failed`:'Nothing to process.')}catch(e){alert(e.message)}
+  loadInputs();
+}
+$('#iq').oninput=drawInputs;$('#bq').oninput=drawBundles;$('#irf').onclick=loadInputs;$('#brf').onclick=loadBundles;
+$('#ipp').onclick=()=>runProcess();
+$('#ips').onclick=()=>{const n=[...document.querySelectorAll('#ib input:checked')].map(c=>c.dataset.n);n.length?runProcess(n):alert('Tick one or more files first.')};
+$('#ib').onclick=e=>{const d=e.target.dataset;if(d.v)viewInput(d.v);if(d.b)openBundle(d.b)};
+$('#bb').onclick=e=>{if(e.target.dataset.o)openBundle(e.target.dataset.o)};
 </script>
 </body>
 </html>

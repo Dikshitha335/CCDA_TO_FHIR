@@ -1,0 +1,768 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-bdd2947b",
+  "meta": {
+    "lastUpdated": "2026-11-17T15:04:27Z",
+    "tag": [
+      {
+        "code": "EXL"
+      }
+    ],
+    "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+  },
+  "type": "collection",
+  "timestamp": "2026-11-17T15:04:27Z",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-bdd2947b-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-bdd2947b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.25.79364944623376954839912467830817539355.1.1",
+            "value": "10"
+          }
+        ],
+        "name": [
+          {
+            "family": "Anderson",
+            "given": [
+              "Mary"
+            ],
+            "use": "official"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1955-12-05",
+        "address": [
+          {
+            "line": [
+              "157 Cedar Dr"
+            ],
+            "city": "Beaverton",
+            "state": "OR",
+            "postalCode": "97006",
+            "country": "US"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/organization-bdd2947b-1",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "organization-bdd2947b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.25.79364944623376954839912467830817539355.1",
+            "value": "3"
+          }
+        ],
+        "name": "Community Health and Hospitals",
+        "telecom": [
+          {
+            "value": "TEL: (555) 555-1002",
+            "system": "phone"
+          }
+        ],
+        "active": true
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Practitioner/practitioner-bdd2947b-1",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-bdd2947b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.25.79364944623376954839912467830817539355.1",
+            "value": "80"
+          }
+        ],
+        "name": [
+          {
+            "family": "Seven",
+            "given": [
+              "Henry"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/PractitionerRole/practitionerrole-bdd2947b-1",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practitionerrole-bdd2947b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "practitioner": {
+          "reference": "Practitioner/practitioner-bdd2947b-1"
+        },
+        "organization": {
+          "reference": "Organization/organization-bdd2947b-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Encounter/encounter-bdd2947b-1",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-bdd2947b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.25.79364944623376954839912467830817539355.3.1",
+            "value": "24"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-bdd2947b-1"
+        },
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-bdd2947b-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-bdd2947b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "449868002",
+              "display": "Smokes tobacco daily"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-bdd2947b-1"
+        },
+        "onsetDateTime": "2015-07-01",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-bdd2947b-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-bdd2947b-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Body height:Length:Point in time:^Patient:Quantitative"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-bdd2947b-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-bdd2947b-1"
+        },
+        "effectiveDateTime": "2017-06-30",
+        "valueQuantity": {
+          "value": 177,
+          "unit": "cm",
+          "code": "cm",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-bdd2947b-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-bdd2947b-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body mass index:Ratio:Point in time:^Patient:Quantitative"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-bdd2947b-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-bdd2947b-1"
+        },
+        "effectiveDateTime": "2017-06-30",
+        "valueQuantity": {
+          "value": 28.09,
+          "unit": "kg/m2",
+          "code": "kg/m2",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-bdd2947b-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-bdd2947b-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body weight:Mass:Pt:^Patient:Qn"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-bdd2947b-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-bdd2947b-1"
+        },
+        "effectiveDateTime": "2017-06-30",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "kg",
+          "code": "kg",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-bdd2947b-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-bdd2947b-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Intravascular systolic:Pressure:Point in time:Arterial system:Quantitative"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-bdd2947b-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-bdd2947b-1"
+        },
+        "effectiveDateTime": "2017-06-30",
+        "valueQuantity": {
+          "value": 144,
+          "unit": "mm[Hg]",
+          "code": "mm[Hg]",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-bdd2947b-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-bdd2947b-6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Intravascular diastolic:Pres:Pt:Arterial system:Qn"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-bdd2947b-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-bdd2947b-1"
+        },
+        "effectiveDateTime": "2017-06-30",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "mm[Hg]",
+          "code": "mm[Hg]",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/AllergyIntolerance/allergyintolerance-bdd2947b-1",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergyintolerance-bdd2947b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active",
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "7980",
+              "display": "Penicillin G"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/patient-bdd2947b-1"
+        },
+        "onsetDateTime": "2017-06-26"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medicationrequest-bdd2947b-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medicationrequest-bdd2947b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "status": "completed",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "308416",
+                "display": "aspirin 81 mg tablet,delayed release"
+              }
+            ]
+          }
+        },
+        "subject": {
+          "reference": "Patient/patient-bdd2947b-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-bdd2947b-1"
+        },
+        "requester": {
+          "reference": "Practitioner/practitioner-bdd2947b-1"
+        },
+        "intent": "order"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medicationrequest-bdd2947b-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medicationrequest-bdd2947b-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "status": "completed",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "198440",
+                "display": "Tylenol Extra Strength 500 mg tablet"
+              }
+            ]
+          }
+        },
+        "subject": {
+          "reference": "Patient/patient-bdd2947b-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-bdd2947b-1"
+        },
+        "requester": {
+          "reference": "Practitioner/practitioner-bdd2947b-1"
+        },
+        "intent": "order"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DocumentReference/documentreference-bdd2947b-1",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-bdd2947b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.25.79364944623376954839912467830817539355",
+            "value": "3e75560d-0fc3-4dd9-a249-7557788f9158"
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summarization of Episode Note"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-bdd2947b-1"
+        },
+        "date": "2017-07-10T10:45:03-04:00",
+        "author": [
+          {
+            "reference": "Practitioner/practitioner-bdd2947b-1"
+          }
+        ],
+        "custodian": {
+          "reference": "Organization/organization-bdd2947b-1"
+        },
+        "content": [
+          {
+            "attachment": {
+              "title": "Community Health and Hospitals: Ambulatory Summary of Care",
+              "contentType": "application/xml"
+            },
+            "profile": [
+              {
+                "valueCoding": {
+                  "system": "http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem",
+                  "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "current",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Provenance/provenance-bdd2947b-1",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-bdd2947b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/10_20170710104504_SummaryOfCare.xml"
+        },
+        "target": [
+          {
+            "reference": "Patient/patient-bdd2947b-1"
+          },
+          {
+            "reference": "Organization/organization-bdd2947b-1"
+          },
+          {
+            "reference": "Practitioner/practitioner-bdd2947b-1"
+          },
+          {
+            "reference": "PractitionerRole/practitionerrole-bdd2947b-1"
+          },
+          {
+            "reference": "Encounter/encounter-bdd2947b-1"
+          },
+          {
+            "reference": "Condition/condition-bdd2947b-1"
+          },
+          {
+            "reference": "Observation/observation-bdd2947b-2"
+          },
+          {
+            "reference": "Observation/observation-bdd2947b-3"
+          },
+          {
+            "reference": "Observation/observation-bdd2947b-4"
+          },
+          {
+            "reference": "Observation/observation-bdd2947b-5"
+          },
+          {
+            "reference": "Observation/observation-bdd2947b-6"
+          },
+          {
+            "reference": "AllergyIntolerance/allergyintolerance-bdd2947b-1"
+          },
+          {
+            "reference": "MedicationRequest/medicationrequest-bdd2947b-1"
+          },
+          {
+            "reference": "MedicationRequest/medicationrequest-bdd2947b-2"
+          },
+          {
+            "reference": "DocumentReference/documentreference-bdd2947b-1"
+          }
+        ],
+        "recorded": "2017-07-10T10:45:03-04:00",
+        "agent": [
+          {
+            "who": {
+              "reference": "Practitioner/practitioner-bdd2947b-1"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/organization-bdd2947b-1"
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

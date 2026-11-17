@@ -1,0 +1,2291 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-9a0f33fc",
+  "meta": {
+    "lastUpdated": "2026-11-17T15:04:27Z",
+    "tag": [
+      {
+        "code": "EXL"
+      }
+    ],
+    "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+  },
+  "type": "collection",
+  "timestamp": "2026-11-17T15:04:27Z",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-9a0f33fc-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.4.1",
+            "value": "46880"
+          }
+        ],
+        "name": [
+          {
+            "family": "Newman",
+            "given": [
+              "Alice"
+            ],
+            "use": "official"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1970-05-01",
+        "telecom": [
+          {
+            "value": "555-723-1544",
+            "system": "phone"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "1357, Amber Dr"
+            ],
+            "city": "Beaverton",
+            "state": "OR",
+            "postalCode": "97006",
+            "country": "US"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/organization-9a0f33fc-1",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "organization-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1147748847"
+          }
+        ],
+        "name": "Neighborhood Physicians Practice",
+        "telecom": [
+          {
+            "value": "555-555-1002",
+            "system": "phone"
+          }
+        ],
+        "active": true
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Practitioner/practitioner-9a0f33fc-1",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1147748847"
+          }
+        ],
+        "name": [
+          {
+            "family": "DAVIS",
+            "given": [
+              "ALBERT"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/PractitionerRole/practitionerrole-9a0f33fc-1",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practitionerrole-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "practitioner": {
+          "reference": "Practitioner/practitioner-9a0f33fc-1"
+        },
+        "organization": {
+          "reference": "Organization/organization-9a0f33fc-1"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "urn:oid:2.16.840.1.113883.6.101",
+                "code": "207QA0505X",
+                "display": "Adult Medicine"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Location/location-9a0f33fc-1",
+      "resource": {
+        "resourceType": "Location",
+        "id": "location-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "name": "Neighborhood Physicians Practice",
+        "telecom": [
+          {
+            "value": "555-555-1002",
+            "system": "phone"
+          }
+        ],
+        "address": {
+          "city": "Beaverton",
+          "state": "OR"
+        },
+        "status": "active"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Encounter/encounter-9a0f33fc-1",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2a620155-9d11-439e-92b3-5d9815ff4de8"
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "00001",
+                "display": "VOID"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/location-9a0f33fc-1"
+            }
+          }
+        ],
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-9a0f33fc-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "238131007",
+              "display": "Overweight (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "onsetDateTime": "2017-10-04",
+        "abatementDateTime": "2017-10-30",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-9a0f33fc-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-9a0f33fc-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "236578006",
+              "display": "Chronic rejection of renal transplant (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "onsetDateTime": "2017-10-04",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-9a0f33fc-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-9a0f33fc-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "83986005",
+              "display": "Severe hypothyroidism (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "onsetDateTime": "2017-10-04",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-9a0f33fc-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-9a0f33fc-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "59621000",
+              "display": "Essential hypertension (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "onsetDateTime": "2017-10-04",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-9a0f33fc-5",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-9a0f33fc-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "386661006",
+              "display": "Fever (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "onsetDateTime": "2017-10-30",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-9a0f33fc-6",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-9a0f33fc-6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "238131007",
+              "display": "Overweight (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "onsetDateTime": "2011-10-05",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-9a0f33fc-7",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-9a0f33fc-7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "83986005",
+              "display": "Severe hypothyroidism (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "onsetDateTime": "2006-12-31",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5804-0",
+              "display": "Protein Mass/volume in Urine by Test strip"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 100,
+          "unit": "mg/dL",
+          "code": "mg/dL",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5797-6",
+              "display": "Ketones Mass/volume in Urine by Test strip"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5792-7",
+              "display": "Glucose Mass/volume in Urine by Test strip"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 50,
+          "unit": "mg/dL",
+          "code": "mg/dL",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5803-2",
+              "display": "pH of Urine by Test strip"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 5,
+          "unit": "[pH]",
+          "code": "[pH]",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5811-5",
+              "display": "Specific gravity of Urine by Test strip"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 1.015,
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5767-9",
+              "display": "Appearance of Urine"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5778-6",
+              "display": "Color of Urine"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-8",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "BODY HEIGHT"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 177,
+          "unit": "CM",
+          "code": "CM",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "BODY WEIGHT"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "kg",
+          "code": "kg",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-10",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "SYSTOLIC BLOOD PRESSURE"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 145,
+          "unit": "mm[Hg]",
+          "code": "mm[Hg]",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-11",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "BP Diastolic"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "mm[Hg]",
+          "code": "mm[Hg]",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-12",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8867-4",
+              "display": "Heart Rate"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 80,
+          "unit": "/min",
+          "code": "/min",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-13",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "9279-1",
+              "display": "Respiratory Rate"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 18,
+          "unit": "/min",
+          "code": "/min",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-14",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8310-5",
+              "display": "Body Temperature"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 38,
+          "unit": "Cel",
+          "code": "Cel",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-15",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "3150-0",
+              "display": "Inhaled Oxygen Concentration"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 36,
+          "unit": "%",
+          "code": "%",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-9a0f33fc-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9a0f33fc-16",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "59408-5",
+              "display": "O2 % BldC Oximetry"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "valueQuantity": {
+          "value": 95,
+          "unit": "%",
+          "code": "%",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DiagnosticReport/diagnosticreport-9a0f33fc-1",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5804-0",
+              "display": "Protein Mass/volume in Urine by Test strip"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "result": [
+          {
+            "reference": "Observation/observation-9a0f33fc-1"
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DiagnosticReport/diagnosticreport-9a0f33fc-2",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-9a0f33fc-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5797-6",
+              "display": "Ketones Mass/volume in Urine by Test strip"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "result": [
+          {
+            "reference": "Observation/observation-9a0f33fc-2"
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DiagnosticReport/diagnosticreport-9a0f33fc-3",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-9a0f33fc-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5792-7",
+              "display": "Glucose Mass/volume in Urine by Test strip"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "result": [
+          {
+            "reference": "Observation/observation-9a0f33fc-3"
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DiagnosticReport/diagnosticreport-9a0f33fc-4",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-9a0f33fc-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5803-2",
+              "display": "pH of Urine by Test strip"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "result": [
+          {
+            "reference": "Observation/observation-9a0f33fc-4"
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DiagnosticReport/diagnosticreport-9a0f33fc-5",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-9a0f33fc-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5811-5",
+              "display": "Specific gravity of Urine by Test strip"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "result": [
+          {
+            "reference": "Observation/observation-9a0f33fc-5"
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DiagnosticReport/diagnosticreport-9a0f33fc-6",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-9a0f33fc-6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5767-9",
+              "display": "Appearance of Urine"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "result": [
+          {
+            "reference": "Observation/observation-9a0f33fc-6"
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DiagnosticReport/diagnosticreport-9a0f33fc-7",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-9a0f33fc-7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "5778-6",
+              "display": "Color of Urine"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "effectiveDateTime": "2017-10-30",
+        "result": [
+          {
+            "reference": "Observation/observation-9a0f33fc-7"
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/AllergyIntolerance/allergyintolerance-9a0f33fc-1",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergyintolerance-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "7980",
+              "display": "PENICILLIN G"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "onsetDateTime": "2017-10-30",
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "concept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "6736007",
+                      "display": "MODERATE"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/AllergyIntolerance/allergyintolerance-9a0f33fc-2",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergyintolerance-9a0f33fc-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "733",
+              "display": "AMPICILLIN"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "onsetDateTime": "2017-10-30",
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "concept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "6736007",
+                      "display": "MODERATE"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medicationrequest-9a0f33fc-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medicationrequest-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "completed",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "731241",
+                "display": "ARANESP (IN POLYSORBATE) INJECTION SYRINGE"
+              }
+            ]
+          }
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "authoredOn": "2017-10-30",
+        "requester": {
+          "reference": "Practitioner/practitioner-9a0f33fc-1"
+        },
+        "intent": "order"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medicationrequest-9a0f33fc-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medicationrequest-9a0f33fc-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "completed",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "209459",
+                "display": "TYLENOL EXTRA STRENGTH"
+              }
+            ]
+          }
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "authoredOn": "2017-10-30",
+        "requester": {
+          "reference": "Practitioner/practitioner-9a0f33fc-1"
+        },
+        "intent": "order"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medicationrequest-9a0f33fc-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medicationrequest-9a0f33fc-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "completed",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "309090",
+                "display": "CEFTRIAXONE SOLUTION FOR INJECTION"
+              }
+            ]
+          }
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "authoredOn": "2017-10-30",
+        "requester": {
+          "reference": "Practitioner/practitioner-9a0f33fc-1"
+        },
+        "intent": "order"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Procedure/procedure-9a0f33fc-1",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "175135009",
+              "display": "Introduction of cardiac pacemaker system via vein"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "occurrenceDateTime": "2017-10-30"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Procedure/procedure-9a0f33fc-2",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-9a0f33fc-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "56251003",
+              "display": "Nebulizer Therapy"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-9a0f33fc-1"
+        },
+        "occurrenceDateTime": "2017-10-30"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DocumentReference/documentreference-9a0f33fc-1",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:ClinicalDocumentGUID",
+            "value": "TT988"
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summarization of Episode Note"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-9a0f33fc-1"
+        },
+        "date": "2017-10-30",
+        "author": [
+          {
+            "reference": "Practitioner/practitioner-9a0f33fc-1"
+          }
+        ],
+        "custodian": {
+          "reference": "Organization/organization-9a0f33fc-1"
+        },
+        "content": [
+          {
+            "attachment": {
+              "title": "Summarization of Episode Note",
+              "contentType": "application/xml"
+            },
+            "profile": [
+              {
+                "valueCoding": {
+                  "system": "http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem",
+                  "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "current",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Provenance/provenance-9a0f33fc-1",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-9a0f33fc-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CCDA_46880_30Oct2017_58708.xml"
+        },
+        "target": [
+          {
+            "reference": "Patient/patient-9a0f33fc-1"
+          },
+          {
+            "reference": "Organization/organization-9a0f33fc-1"
+          },
+          {
+            "reference": "Practitioner/practitioner-9a0f33fc-1"
+          },
+          {
+            "reference": "PractitionerRole/practitionerrole-9a0f33fc-1"
+          },
+          {
+            "reference": "Location/location-9a0f33fc-1"
+          },
+          {
+            "reference": "Encounter/encounter-9a0f33fc-1"
+          },
+          {
+            "reference": "Condition/condition-9a0f33fc-1"
+          },
+          {
+            "reference": "Condition/condition-9a0f33fc-2"
+          },
+          {
+            "reference": "Condition/condition-9a0f33fc-3"
+          },
+          {
+            "reference": "Condition/condition-9a0f33fc-4"
+          },
+          {
+            "reference": "Condition/condition-9a0f33fc-5"
+          },
+          {
+            "reference": "Condition/condition-9a0f33fc-6"
+          },
+          {
+            "reference": "Condition/condition-9a0f33fc-7"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-1"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-2"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-3"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-4"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-5"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-6"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-7"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-8"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-9"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-10"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-11"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-12"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-13"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-14"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-15"
+          },
+          {
+            "reference": "Observation/observation-9a0f33fc-16"
+          },
+          {
+            "reference": "DiagnosticReport/diagnosticreport-9a0f33fc-1"
+          },
+          {
+            "reference": "DiagnosticReport/diagnosticreport-9a0f33fc-2"
+          },
+          {
+            "reference": "DiagnosticReport/diagnosticreport-9a0f33fc-3"
+          },
+          {
+            "reference": "DiagnosticReport/diagnosticreport-9a0f33fc-4"
+          },
+          {
+            "reference": "DiagnosticReport/diagnosticreport-9a0f33fc-5"
+          },
+          {
+            "reference": "DiagnosticReport/diagnosticreport-9a0f33fc-6"
+          },
+          {
+            "reference": "DiagnosticReport/diagnosticreport-9a0f33fc-7"
+          },
+          {
+            "reference": "AllergyIntolerance/allergyintolerance-9a0f33fc-1"
+          },
+          {
+            "reference": "AllergyIntolerance/allergyintolerance-9a0f33fc-2"
+          },
+          {
+            "reference": "MedicationRequest/medicationrequest-9a0f33fc-1"
+          },
+          {
+            "reference": "MedicationRequest/medicationrequest-9a0f33fc-2"
+          },
+          {
+            "reference": "MedicationRequest/medicationrequest-9a0f33fc-3"
+          },
+          {
+            "reference": "Procedure/procedure-9a0f33fc-1"
+          },
+          {
+            "reference": "Procedure/procedure-9a0f33fc-2"
+          },
+          {
+            "reference": "DocumentReference/documentreference-9a0f33fc-1"
+          }
+        ],
+        "recorded": "2017-10-30",
+        "agent": [
+          {
+            "who": {
+              "reference": "Practitioner/practitioner-9a0f33fc-1"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/organization-9a0f33fc-1"
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

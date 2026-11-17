@@ -1,0 +1,686 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-3d721dea",
+  "meta": {
+    "lastUpdated": "2026-11-17T15:04:26Z",
+    "tag": [
+      {
+        "code": "EXL"
+      }
+    ],
+    "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+  },
+  "type": "collection",
+  "timestamp": "2026-11-17T15:04:26Z",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-3d721dea-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-3d721dea-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.4.1",
+            "value": "115253336"
+          }
+        ],
+        "name": [
+          {
+            "family": "Bates",
+            "given": [
+              "Jeremy"
+            ],
+            "use": "official"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1980-08-01",
+        "telecom": [
+          {
+            "value": "+1(555)-777-1234",
+            "system": "phone"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "1357 Amber Dr"
+            ],
+            "city": "Beaverton",
+            "state": "OR",
+            "postalCode": "97006",
+            "country": "US"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/organization-3d721dea-1",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "organization-3d721dea-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "99999999"
+          }
+        ],
+        "name": "Neighborhood Physicians Practice",
+        "telecom": [
+          {
+            "value": "+1(555)-555-1002",
+            "system": "phone"
+          }
+        ],
+        "active": true
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Location/location-3d721dea-1",
+      "resource": {
+        "resourceType": "Location",
+        "id": "location-3d721dea-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "name": "Neighborhood Physicians Practice",
+        "telecom": [
+          {
+            "value": "+1(555)-555-1002",
+            "system": "phone"
+          }
+        ],
+        "address": {
+          "city": "Beaverton",
+          "state": "OR"
+        },
+        "status": "active"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Encounter/encounter-3d721dea-1",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-3d721dea-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2a620155-9d11-449e-92b3-5d9815ff4de8"
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "699134002",
+                "display": "Caregiver Annual Health Check"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-3d721dea-1"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/location-3d721dea-1"
+            }
+          }
+        ],
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-3d721dea-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3d721dea-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "55607006",
+              "display": "Problem"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-3d721dea-1"
+        },
+        "onsetDateTime": "2015-07-22",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3d721dea-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3d721dea-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Height"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-3d721dea-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-3d721dea-1"
+        },
+        "effectiveDateTime": "2015-07-22T14:05:00-05:00",
+        "valueQuantity": {
+          "value": 177,
+          "unit": "cm",
+          "code": "cm",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3d721dea-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3d721dea-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Weight"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-3d721dea-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-3d721dea-1"
+        },
+        "effectiveDateTime": "2015-07-22T14:05:00-05:00",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "kg",
+          "code": "kg",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3d721dea-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3d721dea-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Blood Pressure-Diastolic"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-3d721dea-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-3d721dea-1"
+        },
+        "effectiveDateTime": "2015-07-22T14:10:00-05:00",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "mm[Hg]",
+          "code": "mm[Hg]",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-3d721dea-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3d721dea-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Blood Pressure-Systolic"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-3d721dea-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-3d721dea-1"
+        },
+        "effectiveDateTime": "2015-07-22T14:10:00-05:00",
+        "valueQuantity": {
+          "value": 145,
+          "unit": "mm[Hg]",
+          "code": "mm[Hg]",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medicationrequest-3d721dea-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medicationrequest-3d721dea-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "status": "active",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "410942007",
+                "display": "drug or medication"
+              }
+            ]
+          }
+        },
+        "subject": {
+          "reference": "Patient/patient-3d721dea-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-3d721dea-1"
+        },
+        "intent": "order"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Procedure/procedure-3d721dea-1",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-3d721dea-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "71388002",
+              "display": "Procedure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-3d721dea-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-3d721dea-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Procedure/procedure-3d721dea-2",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-3d721dea-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "71388002",
+              "display": "Procedure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-3d721dea-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-3d721dea-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DocumentReference/documentreference-3d721dea-1",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-3d721dea-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.19.5.99999.1",
+            "value": "TT104"
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summary of Episode"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-3d721dea-1"
+        },
+        "date": "2015-07-22",
+        "custodian": {
+          "reference": "Organization/organization-3d721dea-1"
+        },
+        "content": [
+          {
+            "attachment": {
+              "title": "EMR Direct Test EHR Referral Note",
+              "contentType": "application/xml"
+            },
+            "profile": [
+              {
+                "valueCoding": {
+                  "system": "http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem",
+                  "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "current",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Provenance/provenance-3d721dea-1",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-3d721dea-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/g9_CCDA_all-data_jeremy.xml"
+        },
+        "target": [
+          {
+            "reference": "Patient/patient-3d721dea-1"
+          },
+          {
+            "reference": "Organization/organization-3d721dea-1"
+          },
+          {
+            "reference": "Location/location-3d721dea-1"
+          },
+          {
+            "reference": "Encounter/encounter-3d721dea-1"
+          },
+          {
+            "reference": "Condition/condition-3d721dea-1"
+          },
+          {
+            "reference": "Observation/observation-3d721dea-1"
+          },
+          {
+            "reference": "Observation/observation-3d721dea-2"
+          },
+          {
+            "reference": "Observation/observation-3d721dea-3"
+          },
+          {
+            "reference": "Observation/observation-3d721dea-4"
+          },
+          {
+            "reference": "MedicationRequest/medicationrequest-3d721dea-1"
+          },
+          {
+            "reference": "Procedure/procedure-3d721dea-1"
+          },
+          {
+            "reference": "Procedure/procedure-3d721dea-2"
+          },
+          {
+            "reference": "DocumentReference/documentreference-3d721dea-1"
+          }
+        ],
+        "recorded": "2015-07-22",
+        "agent": [
+          {
+            "onBehalfOf": {
+              "reference": "Organization/organization-3d721dea-1"
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

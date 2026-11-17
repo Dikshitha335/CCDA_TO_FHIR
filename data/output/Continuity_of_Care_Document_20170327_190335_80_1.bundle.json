@@ -1,0 +1,210 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-833bfa15",
+  "meta": {
+    "lastUpdated": "2026-11-17T15:04:27Z",
+    "tag": [
+      {
+        "code": "EXL"
+      }
+    ],
+    "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Continuity_of_Care_Document_20170327_190335_80_1.xml"
+  },
+  "type": "collection",
+  "timestamp": "2026-11-17T15:04:27Z",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-833bfa15-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-833bfa15-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Continuity_of_Care_Document_20170327_190335_80_1.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:1.1.1.1.1.1",
+            "value": "80"
+          }
+        ],
+        "name": [
+          {
+            "family": "BENTON",
+            "given": [
+              "KATHERINE"
+            ],
+            "use": "official"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-12-21",
+        "telecom": [
+          {
+            "value": "406-555-4019",
+            "system": "phone"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "89 West 21st Ave"
+            ],
+            "city": "Bozeman",
+            "state": "MT",
+            "postalCode": "59715"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-833bfa15-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-833bfa15-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Continuity_of_Care_Document_20170327_190335_80_1.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "55607006",
+              "display": "Problem"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-833bfa15-1"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DocumentReference/documentreference-833bfa15-1",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-833bfa15-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Continuity_of_Care_Document_20170327_190335_80_1.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.19.5.99999.1",
+            "value": "TT988"
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "57133-1",
+              "display": "REFERRAL NOTE"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-833bfa15-1"
+        },
+        "date": "2017-03-27",
+        "content": [
+          {
+            "attachment": {
+              "title": "Referral Note",
+              "contentType": "application/xml"
+            },
+            "profile": [
+              {
+                "valueCoding": {
+                  "system": "http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem",
+                  "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "current",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Provenance/provenance-833bfa15-1",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-833bfa15-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Continuity_of_Care_Document_20170327_190335_80_1.xml"
+        },
+        "target": [
+          {
+            "reference": "Patient/patient-833bfa15-1"
+          },
+          {
+            "reference": "Condition/condition-833bfa15-1"
+          },
+          {
+            "reference": "DocumentReference/documentreference-833bfa15-1"
+          }
+        ],
+        "recorded": "2017-03-27"
+      }
+    }
+  ]
+}

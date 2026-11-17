@@ -1,0 +1,338 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-dda00fdf",
+  "meta": {
+    "lastUpdated": "2026-11-17T15:04:26Z",
+    "tag": [
+      {
+        "code": "EXL"
+      }
+    ],
+    "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Albert_Bernard_315116_CCD_201709180916.xml"
+  },
+  "type": "collection",
+  "timestamp": "2026-11-17T15:04:26Z",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-dda00fdf-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-dda00fdf-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Albert_Bernard_315116_CCD_201709180916.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.3619.2",
+            "value": "9"
+          }
+        ],
+        "name": [
+          {
+            "family": "Albert",
+            "given": [
+              "Bernard"
+            ],
+            "use": "official"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1975-06-22",
+        "telecom": [
+          {
+            "value": "+1-5553361550",
+            "system": "phone"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "1011 Amber Dr"
+            ],
+            "city": "Beaverton",
+            "state": "OR",
+            "postalCode": "97056",
+            "country": "US"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/organization-dda00fdf-1",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "organization-dda00fdf-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Albert_Bernard_315116_CCD_201709180916.xml"
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "2019030407"
+          }
+        ],
+        "name": "Community Health and Hospitals",
+        "telecom": [
+          {
+            "value": "+1-5555555000",
+            "system": "phone"
+          }
+        ],
+        "active": true
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Practitioner/practitioner-dda00fdf-1",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-dda00fdf-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Albert_Bernard_315116_CCD_201709180916.xml"
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1123519875"
+          }
+        ],
+        "name": [
+          {
+            "family": "DAVIS",
+            "given": [
+              "ANDREW"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/PractitionerRole/practitionerrole-dda00fdf-1",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practitionerrole-dda00fdf-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Albert_Bernard_315116_CCD_201709180916.xml"
+        },
+        "practitioner": {
+          "reference": "Practitioner/practitioner-dda00fdf-1"
+        },
+        "organization": {
+          "reference": "Organization/organization-dda00fdf-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Encounter/encounter-dda00fdf-1",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-dda00fdf-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Albert_Bernard_315116_CCD_201709180916.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.3619.7",
+            "value": "Inpatient8"
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99234",
+                "display": "Observation or Inpatient Hospital care"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-dda00fdf-1"
+        },
+        "actualPeriod": {
+          "start": "2017-06-22T12:30:32-04:00"
+        },
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DocumentReference/documentreference-dda00fdf-1",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-dda00fdf-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Albert_Bernard_315116_CCD_201709180916.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.3619",
+            "value": "1"
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summarization of Episode Note"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-dda00fdf-1"
+        },
+        "date": "2017-09-18T09:16:34-04:00",
+        "author": [
+          {
+            "reference": "Practitioner/practitioner-dda00fdf-1"
+          }
+        ],
+        "custodian": {
+          "reference": "Organization/organization-dda00fdf-1"
+        },
+        "content": [
+          {
+            "attachment": {
+              "title": "Summarization of Episode Note",
+              "contentType": "application/xml"
+            },
+            "profile": [
+              {
+                "valueCoding": {
+                  "system": "http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem",
+                  "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "current",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Provenance/provenance-dda00fdf-1",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-dda00fdf-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/Albert_Bernard_315116_CCD_201709180916.xml"
+        },
+        "target": [
+          {
+            "reference": "Patient/patient-dda00fdf-1"
+          },
+          {
+            "reference": "Organization/organization-dda00fdf-1"
+          },
+          {
+            "reference": "Practitioner/practitioner-dda00fdf-1"
+          },
+          {
+            "reference": "PractitionerRole/practitionerrole-dda00fdf-1"
+          },
+          {
+            "reference": "Encounter/encounter-dda00fdf-1"
+          },
+          {
+            "reference": "DocumentReference/documentreference-dda00fdf-1"
+          }
+        ],
+        "recorded": "2017-09-18T09:16:34-04:00",
+        "agent": [
+          {
+            "who": {
+              "reference": "Practitioner/practitioner-dda00fdf-1"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/organization-dda00fdf-1"
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

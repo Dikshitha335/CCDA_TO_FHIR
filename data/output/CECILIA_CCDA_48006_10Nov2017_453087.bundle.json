@@ -1,0 +1,885 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-897ff06b",
+  "meta": {
+    "lastUpdated": "2026-11-17T15:04:27Z",
+    "tag": [
+      {
+        "code": "EXL"
+      }
+    ],
+    "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+  },
+  "type": "collection",
+  "timestamp": "2026-11-17T15:04:27Z",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-897ff06b-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-897ff06b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.4.1",
+            "value": "48006"
+          }
+        ],
+        "name": [
+          {
+            "family": "Cummings",
+            "given": [
+              "Cecilia"
+            ],
+            "use": "official"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1970-07-01",
+        "telecom": [
+          {
+            "value": "555-340-1544",
+            "system": "phone"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "1014 Amber Dr"
+            ],
+            "city": "Beaverton",
+            "state": "OR",
+            "postalCode": "97006",
+            "country": "US"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/organization-897ff06b-1",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "organization-897ff06b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1147748847"
+          }
+        ],
+        "name": "Neighborhood Physicians Practice",
+        "telecom": [
+          {
+            "value": "555-555-1002",
+            "system": "phone"
+          }
+        ],
+        "active": true
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Practitioner/practitioner-897ff06b-1",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-897ff06b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1147748847"
+          }
+        ],
+        "name": [
+          {
+            "family": "DAVIS",
+            "given": [
+              "ALBERT"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/PractitionerRole/practitionerrole-897ff06b-1",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practitionerrole-897ff06b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "practitioner": {
+          "reference": "Practitioner/practitioner-897ff06b-1"
+        },
+        "organization": {
+          "reference": "Organization/organization-897ff06b-1"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "urn:oid:2.16.840.1.113883.6.101",
+                "code": "207QA0505X",
+                "display": "Adult Medicine"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Location/location-897ff06b-1",
+      "resource": {
+        "resourceType": "Location",
+        "id": "location-897ff06b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "name": "Good Health Urgent Care",
+        "telecom": [
+          {
+            "value": "555-555-1002",
+            "system": "phone"
+          }
+        ],
+        "address": {
+          "city": "Beaverton",
+          "state": "OR"
+        },
+        "status": "active"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Encounter/encounter-897ff06b-1",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-897ff06b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2a620155-9d11-439e-92b3-5d9815ff4de8"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-897ff06b-1"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/location-897ff06b-1"
+            }
+          }
+        ],
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-897ff06b-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-897ff06b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "386661006",
+              "display": "Fever (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-897ff06b-1"
+        },
+        "onsetDateTime": "2017-11-09",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-897ff06b-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-897ff06b-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "236578006",
+              "display": "Chronic rejection of renal transplant (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-897ff06b-1"
+        },
+        "onsetDateTime": "2017-11-09",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-897ff06b-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-897ff06b-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "83986005",
+              "display": "Severe hypothyroidism (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-897ff06b-1"
+        },
+        "onsetDateTime": "2017-11-09",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-897ff06b-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-897ff06b-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "238131007",
+              "display": "Overweight (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-897ff06b-1"
+        },
+        "onsetDateTime": "2017-11-09",
+        "abatementDateTime": "2017-11-10",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-897ff06b-5",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-897ff06b-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "59621000",
+              "display": "Essential hypertension (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-897ff06b-1"
+        },
+        "onsetDateTime": "2017-11-09",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/AllergyIntolerance/allergyintolerance-897ff06b-1",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergyintolerance-897ff06b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "7980",
+              "display": "PENICILLIN G BENZATHINE"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/patient-897ff06b-1"
+        },
+        "onsetDateTime": "2017-11-10",
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "concept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "6736007",
+                      "display": "Moderate"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/AllergyIntolerance/allergyintolerance-897ff06b-2",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergyintolerance-897ff06b-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved",
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "733",
+              "display": "AMPICILLIN"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/patient-897ff06b-1"
+        },
+        "onsetDateTime": "2017-11-10",
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "concept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "6736007",
+                      "display": "Moderate"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medicationrequest-897ff06b-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medicationrequest-897ff06b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "status": "completed",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "731241",
+                "display": "ARANESP (IN POLYSORBATE) INJECTION SYRINGE"
+              }
+            ]
+          }
+        },
+        "subject": {
+          "reference": "Patient/patient-897ff06b-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-897ff06b-1"
+        },
+        "authoredOn": "2017-11-10",
+        "requester": {
+          "reference": "Practitioner/practitioner-897ff06b-1"
+        },
+        "intent": "order"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medicationrequest-897ff06b-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medicationrequest-897ff06b-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "status": "completed",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "209459",
+                "display": "TYLENOL EXTRA STRENGTH"
+              }
+            ]
+          }
+        },
+        "subject": {
+          "reference": "Patient/patient-897ff06b-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-897ff06b-1"
+        },
+        "authoredOn": "2017-11-10",
+        "requester": {
+          "reference": "Practitioner/practitioner-897ff06b-1"
+        },
+        "intent": "order"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medicationrequest-897ff06b-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medicationrequest-897ff06b-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "status": "completed",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "309090",
+                "display": "CEFTRIAXONE SOLUTION FOR INJECTION"
+              }
+            ]
+          }
+        },
+        "subject": {
+          "reference": "Patient/patient-897ff06b-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-897ff06b-1"
+        },
+        "authoredOn": "2017-11-10",
+        "requester": {
+          "reference": "Practitioner/practitioner-897ff06b-1"
+        },
+        "intent": "order"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DocumentReference/documentreference-897ff06b-1",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-897ff06b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:ClinicalDocumentGUID",
+            "value": "TT988"
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Health Summary"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-897ff06b-1"
+        },
+        "date": "2017-11-10",
+        "author": [
+          {
+            "reference": "Practitioner/practitioner-897ff06b-1"
+          }
+        ],
+        "custodian": {
+          "reference": "Organization/organization-897ff06b-1"
+        },
+        "content": [
+          {
+            "attachment": {
+              "title": "Health Summary",
+              "contentType": "application/xml"
+            },
+            "profile": [
+              {
+                "valueCoding": {
+                  "system": "http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem",
+                  "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "current",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Provenance/provenance-897ff06b-1",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-897ff06b-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/CECILIA_CCDA_48006_10Nov2017_453087.xml"
+        },
+        "target": [
+          {
+            "reference": "Patient/patient-897ff06b-1"
+          },
+          {
+            "reference": "Organization/organization-897ff06b-1"
+          },
+          {
+            "reference": "Practitioner/practitioner-897ff06b-1"
+          },
+          {
+            "reference": "PractitionerRole/practitionerrole-897ff06b-1"
+          },
+          {
+            "reference": "Location/location-897ff06b-1"
+          },
+          {
+            "reference": "Encounter/encounter-897ff06b-1"
+          },
+          {
+            "reference": "Condition/condition-897ff06b-1"
+          },
+          {
+            "reference": "Condition/condition-897ff06b-2"
+          },
+          {
+            "reference": "Condition/condition-897ff06b-3"
+          },
+          {
+            "reference": "Condition/condition-897ff06b-4"
+          },
+          {
+            "reference": "Condition/condition-897ff06b-5"
+          },
+          {
+            "reference": "AllergyIntolerance/allergyintolerance-897ff06b-1"
+          },
+          {
+            "reference": "AllergyIntolerance/allergyintolerance-897ff06b-2"
+          },
+          {
+            "reference": "MedicationRequest/medicationrequest-897ff06b-1"
+          },
+          {
+            "reference": "MedicationRequest/medicationrequest-897ff06b-2"
+          },
+          {
+            "reference": "MedicationRequest/medicationrequest-897ff06b-3"
+          },
+          {
+            "reference": "DocumentReference/documentreference-897ff06b-1"
+          }
+        ],
+        "recorded": "2017-11-10",
+        "agent": [
+          {
+            "who": {
+              "reference": "Practitioner/practitioner-897ff06b-1"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/organization-897ff06b-1"
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

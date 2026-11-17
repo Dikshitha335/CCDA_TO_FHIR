@@ -1,0 +1,646 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-157df45e",
+  "meta": {
+    "lastUpdated": "2026-11-17T15:04:26Z",
+    "tag": [
+      {
+        "code": "EXL"
+      }
+    ],
+    "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+  },
+  "type": "collection",
+  "timestamp": "2026-11-17T15:04:26Z",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-157df45e-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-157df45e-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.4.1",
+            "value": "201710-0010123"
+          }
+        ],
+        "name": [
+          {
+            "family": "Bates",
+            "given": [
+              "Jeremy"
+            ],
+            "use": "official"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1980-08-01",
+        "telecom": [
+          {
+            "value": "+1((55)-5) -5551",
+            "system": "phone"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "1357, Amber Dr Beaverton,"
+            ],
+            "city": "Aloha",
+            "state": "Oregon",
+            "postalCode": "97006",
+            "country": "US"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Organization/organization-157df45e-1",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "organization-157df45e-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1891724563"
+          }
+        ],
+        "name": "Primary Office",
+        "telecom": [
+          {
+            "value": "+1((55)-5) -5551",
+            "system": "phone"
+          }
+        ],
+        "active": true
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Practitioner/practitioner-157df45e-1",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-157df45e-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1750491212"
+          }
+        ],
+        "name": [
+          {
+            "family": "Davis",
+            "given": [
+              "Albert"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/PractitionerRole/practitionerrole-157df45e-1",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practitionerrole-157df45e-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "practitioner": {
+          "reference": "Practitioner/practitioner-157df45e-1"
+        },
+        "organization": {
+          "reference": "Organization/organization-157df45e-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Location/location-157df45e-1",
+      "resource": {
+        "resourceType": "Location",
+        "id": "location-157df45e-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "name": "Primary Office",
+        "telecom": [
+          {
+            "value": "+1((55)-5) -5551",
+            "system": "phone"
+          }
+        ],
+        "address": {
+          "city": "Beaverton",
+          "state": "OR"
+        },
+        "status": "active"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Encounter/encounter-157df45e-1",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-157df45e-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:e5f2301f-3758-41ce-a28f-458d97070bc6"
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "102513008",
+                "display": "Well male adult"
+              },
+              {
+                "system": "urn:oid:2.16.840.1.113883.5.4",
+                "code": "AMB",
+                "display": "Ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-157df45e-1"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/location-157df45e-1"
+            }
+          }
+        ],
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-157df45e-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-157df45e-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "55607006",
+              "display": "Problem"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-157df45e-1"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-157df45e-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-157df45e-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Height"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-157df45e-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-157df45e-1"
+        },
+        "effectiveDateTime": "2015-07-22",
+        "valueQuantity": {
+          "value": 177,
+          "unit": "cm",
+          "code": "cm",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-157df45e-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-157df45e-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Patient Body Weight - Measured"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-157df45e-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-157df45e-1"
+        },
+        "effectiveDateTime": "2015-07-22",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "kg",
+          "code": "kg",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-157df45e-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-157df45e-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic blood pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-157df45e-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-157df45e-1"
+        },
+        "effectiveDateTime": "2015-07-22",
+        "valueQuantity": {
+          "value": 145,
+          "unit": "mm[Hg]",
+          "code": "mm[Hg]",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-157df45e-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-157df45e-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "BP Diastolic"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-157df45e-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-157df45e-1"
+        },
+        "effectiveDateTime": "2015-07-22",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "mm[Hg]",
+          "code": "mm[Hg]",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DocumentReference/documentreference-157df45e-1",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-157df45e-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.19.5.99999.1",
+            "value": "TT660"
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summarization of Episode Note"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-157df45e-1"
+        },
+        "date": "2017-10-05",
+        "author": [
+          {
+            "reference": "Practitioner/practitioner-157df45e-1"
+          }
+        ],
+        "custodian": {
+          "reference": "Organization/organization-157df45e-1"
+        },
+        "content": [
+          {
+            "attachment": {
+              "title": "Health Summary",
+              "contentType": "application/xml"
+            },
+            "profile": [
+              {
+                "valueCoding": {
+                  "system": "http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem",
+                  "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "current",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Provenance/provenance-157df45e-1",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-157df45e-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/201710-0010123.xml"
+        },
+        "target": [
+          {
+            "reference": "Patient/patient-157df45e-1"
+          },
+          {
+            "reference": "Organization/organization-157df45e-1"
+          },
+          {
+            "reference": "Practitioner/practitioner-157df45e-1"
+          },
+          {
+            "reference": "PractitionerRole/practitionerrole-157df45e-1"
+          },
+          {
+            "reference": "Location/location-157df45e-1"
+          },
+          {
+            "reference": "Encounter/encounter-157df45e-1"
+          },
+          {
+            "reference": "Condition/condition-157df45e-1"
+          },
+          {
+            "reference": "Observation/observation-157df45e-1"
+          },
+          {
+            "reference": "Observation/observation-157df45e-2"
+          },
+          {
+            "reference": "Observation/observation-157df45e-3"
+          },
+          {
+            "reference": "Observation/observation-157df45e-4"
+          },
+          {
+            "reference": "DocumentReference/documentreference-157df45e-1"
+          }
+        ],
+        "recorded": "2017-10-05",
+        "agent": [
+          {
+            "who": {
+              "reference": "Practitioner/practitioner-157df45e-1"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/organization-157df45e-1"
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,843 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-5f54d3d8",
+  "meta": {
+    "lastUpdated": "2026-11-17T15:04:27Z",
+    "tag": [
+      {
+        "code": "EXL"
+      }
+    ],
+    "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+  },
+  "type": "collection",
+  "timestamp": "2026-11-17T15:04:27Z",
+  "entry": [
+    {
+      "fullUrl": "https://example.org/fhir/Patient/patient-5f54d3d8-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-5f54d3d8-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.6454.132130.2",
+            "value": "1550"
+          }
+        ],
+        "name": [
+          {
+            "family": "BATES",
+            "given": [
+              "JEREMY"
+            ],
+            "use": "official"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1980-08-01",
+        "telecom": [
+          {
+            "value": "+1-555-723-1544",
+            "system": "phone"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "1357 AMBER DR"
+            ],
+            "city": "BEAVERTON",
+            "state": "OR",
+            "postalCode": "97006",
+            "country": "US"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Practitioner/practitioner-5f54d3d8-1",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-5f54d3d8-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "name": [
+          {
+            "family": "Davis",
+            "given": [
+              "Albert"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/PractitionerRole/practitionerrole-5f54d3d8-1",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practitionerrole-5f54d3d8-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "practitioner": {
+          "reference": "Practitioner/practitioner-5f54d3d8-1"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "urn:oid:2.16.840.1.113883.6.101",
+                "code": "208D00000X",
+                "display": "General Practice"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Location/location-5f54d3d8-1",
+      "resource": {
+        "resourceType": "Location",
+        "id": "location-5f54d3d8-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "name": "NEIGHBORHOOD PHYSICIANS PRACTICE",
+        "telecom": [
+          {
+            "value": "+1-555-555-1002",
+            "system": "phone"
+          }
+        ],
+        "status": "active"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Location/location-5f54d3d8-2",
+      "resource": {
+        "resourceType": "Location",
+        "id": "location-5f54d3d8-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "name": "NEIGHBORHOOD PHYSICIANS PRACTICE",
+        "telecom": [
+          {
+            "value": "+1-555-555-1002",
+            "system": "phone"
+          }
+        ],
+        "status": "active"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Location/location-5f54d3d8-3",
+      "resource": {
+        "resourceType": "Location",
+        "id": "location-5f54d3d8-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "name": "NEIGHBORHOOD PHYSICIANS PRACTICE",
+        "telecom": [
+          {
+            "value": "+1-555-555-1002",
+            "system": "phone"
+          }
+        ],
+        "status": "active"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Location/location-5f54d3d8-4",
+      "resource": {
+        "resourceType": "Location",
+        "id": "location-5f54d3d8-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "name": "NEIGHBORHOOD PHYSICIANS PRACTICE",
+        "telecom": [
+          {
+            "value": "+1-555-555-1002",
+            "system": "phone"
+          }
+        ],
+        "status": "active"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Encounter/encounter-5f54d3d8-1",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-5f54d3d8-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.6454.132130.7",
+            "value": "4740"
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99385",
+                "display": "Prev. Visit New 18-39 Yrs"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-5f54d3d8-1"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/location-5f54d3d8-1"
+            }
+          }
+        ],
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Encounter/encounter-5f54d3d8-2",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-5f54d3d8-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.6454.132130.7",
+            "value": "4740"
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99385",
+                "display": "Prev. Visit New 18-39 Yrs"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-5f54d3d8-1"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/location-5f54d3d8-3"
+            }
+          }
+        ],
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Condition/condition-5f54d3d8-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-5f54d3d8-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active",
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "55607006",
+              "display": "Problem"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-5f54d3d8-1"
+        },
+        "onsetDateTime": "2015-07-22",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5f54d3d8-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5f54d3d8-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Height"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-5f54d3d8-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-5f54d3d8-1"
+        },
+        "effectiveDateTime": "2015-07-22T17:02:00-05:00",
+        "valueQuantity": {
+          "value": 177,
+          "unit": "cm",
+          "code": "cm",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5f54d3d8-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5f54d3d8-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body weight"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-5f54d3d8-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-5f54d3d8-1"
+        },
+        "effectiveDateTime": "2015-07-22T17:02:00-05:00",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "kg",
+          "code": "kg",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5f54d3d8-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5f54d3d8-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body mass index"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-5f54d3d8-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-5f54d3d8-1"
+        },
+        "effectiveDateTime": "2015-07-22T17:02:00-05:00",
+        "valueQuantity": {
+          "value": 28,
+          "unit": "kg/m2",
+          "code": "kg/m2",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5f54d3d8-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5f54d3d8-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "BP Systolic"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-5f54d3d8-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-5f54d3d8-1"
+        },
+        "effectiveDateTime": "2015-07-22T17:02:00-05:00",
+        "valueQuantity": {
+          "value": 145,
+          "unit": "mm[Hg]",
+          "code": "mm[Hg]",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Observation/observation-5f54d3d8-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5f54d3d8-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "BP Diastolic"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-5f54d3d8-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-5f54d3d8-1"
+        },
+        "effectiveDateTime": "2015-07-22T17:02:00-05:00",
+        "valueQuantity": {
+          "value": 88,
+          "unit": "mm[Hg]",
+          "code": "mm[Hg]",
+          "system": "http://unitsofmeasure.org"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/MedicationRequest/medicationrequest-5f54d3d8-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medicationrequest-5f54d3d8-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "status": "completed",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "410942007",
+                "display": "Drug or medication"
+              }
+            ]
+          }
+        },
+        "subject": {
+          "reference": "Patient/patient-5f54d3d8-1"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-5f54d3d8-1"
+        },
+        "requester": {
+          "reference": "Practitioner/practitioner-5f54d3d8-1"
+        },
+        "intent": "order"
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/DocumentReference/documentreference-5f54d3d8-1",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-5f54d3d8-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.3.6454.132130.1",
+            "value": "1550-20170918143032-0500"
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summarization of episode note"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-5f54d3d8-1"
+        },
+        "date": "2017-09-18T14:30:32-05:00",
+        "author": [
+          {
+            "reference": "Practitioner/practitioner-5f54d3d8-1"
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "title": "Neighborhood Physicians Practice",
+              "contentType": "application/xml"
+            },
+            "profile": [
+              {
+                "valueCoding": {
+                  "system": "http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem",
+                  "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "current",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://example.org/fhir/Provenance/provenance-5f54d3d8-1",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-5f54d3d8-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance|6.1.0"
+          ],
+          "tag": [
+            {
+              "code": "EXL"
+            }
+          ],
+          "source": "file:///C:/Users/diksh/OneDrive/Desktop/EXL-POC/CCDA_TO_FHIR/data/input/BATES_JR_JEREMY_V_1550_08-01-1980.52232.xml"
+        },
+        "target": [
+          {
+            "reference": "Patient/patient-5f54d3d8-1"
+          },
+          {
+            "reference": "Practitioner/practitioner-5f54d3d8-1"
+          },
+          {
+            "reference": "PractitionerRole/practitionerrole-5f54d3d8-1"
+          },
+          {
+            "reference": "Location/location-5f54d3d8-1"
+          },
+          {
+            "reference": "Location/location-5f54d3d8-2"
+          },
+          {
+            "reference": "Location/location-5f54d3d8-3"
+          },
+          {
+            "reference": "Location/location-5f54d3d8-4"
+          },
+          {
+            "reference": "Encounter/encounter-5f54d3d8-1"
+          },
+          {
+            "reference": "Encounter/encounter-5f54d3d8-2"
+          },
+          {
+            "reference": "Condition/condition-5f54d3d8-1"
+          },
+          {
+            "reference": "Observation/observation-5f54d3d8-1"
+          },
+          {
+            "reference": "Observation/observation-5f54d3d8-2"
+          },
+          {
+            "reference": "Observation/observation-5f54d3d8-3"
+          },
+          {
+            "reference": "Observation/observation-5f54d3d8-4"
+          },
+          {
+            "reference": "Observation/observation-5f54d3d8-5"
+          },
+          {
+            "reference": "MedicationRequest/medicationrequest-5f54d3d8-1"
+          },
+          {
+            "reference": "DocumentReference/documentreference-5f54d3d8-1"
+          }
+        ],
+        "recorded": "2017-09-18T14:30:32-05:00",
+        "agent": [
+          {
+            "who": {
+              "reference": "Practitioner/practitioner-5f54d3d8-1"
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
